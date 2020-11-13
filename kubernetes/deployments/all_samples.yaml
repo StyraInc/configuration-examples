@@ -35,7 +35,11 @@ spec:
       mountPath: /data/redis
   volumes:
   - name: redis-storage
-    emptyDir: {}
+    hostPath:
+      path: /main
+  - name: backup
+    hostPath:
+      path: /nfs/backup
 ---
 apiVersion: v1
 kind: Pod
